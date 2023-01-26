@@ -2,6 +2,15 @@
 
 The Meal App is a web application that allows users to search for and discover new meals and recipes. Users can search for meals by name, ingredient, or category, and can also save their favourite meals for quick access later. The app also includes a feature to watch recipe videos on youtube.
 
+
+## Key Features
+
+- Search Meal by name
+- Auto sugestion on pressed keyword
+- Save favrouite meals for future use
+- Ability to restore saved meals even after reopening the browser
+- Works seamlessly on both mobile and desktop devices
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -23,6 +32,10 @@ These instructions will get you a copy of the project up and running on your loc
 - HTML
 - CSS
 - JavaScript
+
+## Demo
+
+Check out the live demo of the application at https://imsahadeb.github.io/The-Meal-App-Coding-Ninjas/
 
 ## Authors
 
