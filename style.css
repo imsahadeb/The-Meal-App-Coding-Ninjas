@@ -264,6 +264,9 @@ body {
 
 .fav-item.nothing {
     background-color: transparent;
+    color: rgb(129, 128, 126);
+    font-size: .8rem;
+    text-decoration: none;
 }
 
 

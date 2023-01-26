@@ -15,7 +15,7 @@
  */
 
 
- const dbObjectFavList = "favouritesList24ddyffffyyy6";
+ const dbObjectFavList = "favouritesList";
  if (localStorage.getItem(dbObjectFavList) == null) {
     localStorage.setItem(dbObjectFavList, JSON.stringify([]));
 }
@@ -268,7 +268,8 @@ async function showMealDetails(itemId, searchInput) {
         <div class="item-ingrident">
             <strong>Ingrident: </strong>
             <span class="item-text">
-            ${mealDetails.meals[0].strIngredient1},${mealDetails.meals[0].strIngredient2},${mealDetails.meals[0].strIngredient3},${mealDetails.meals[0].strIngredient4}
+            ${mealDetails.meals[0].strIngredient1},${mealDetails.meals[0].strIngredient2},
+            ${mealDetails.meals[0].strIngredient3},${mealDetails.meals[0].strIngredient4}
             </span>
         </div>
         <div class="item-instruction">
@@ -283,7 +284,8 @@ async function showMealDetails(itemId, searchInput) {
             <a href="${mealDetails.meals[0].strYoutube}">Watch Here</a>
           
             </span>
-            <div id="like-button" onclick="addRemoveToFavList(${mealDetails.meals[0].idMeal})">  ${isFav(list, mealDetails.meals[0].idMeal) ? 'Remove From Favourite' : 'Add To Favourite'} </div>
+            <div id="like-button" onclick="addRemoveToFavList(${mealDetails.meals[0].idMeal})"> 
+             ${isFav(list, mealDetails.meals[0].idMeal) ? 'Remove From Favourite' : 'Add To Favourite'} </div>
         </div>
     </div>
 </div> 
@@ -311,7 +313,8 @@ async function showMealDetails(itemId, searchInput) {
             <div class="card-bottom">
                 <div class="like">
                    
-                    <i class="fa-solid fa-heart ${isFav(list, element.idMeal) ? 'active' : ''} " onclick="addRemoveToFavList(${element.idMeal})"></i>
+                    <i class="fa-solid fa-heart ${isFav(list, element.idMeal) ? 'active' : ''} " 
+                    onclick="addRemoveToFavList(${element.idMeal})"></i>
                 </div>
                 <div class="play">
                     <a href="${element.strYoutube}">
