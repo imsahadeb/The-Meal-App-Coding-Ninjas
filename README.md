@@ -39,7 +39,7 @@ Check out the live demo of the application at https://imsahadeb.github.io/The-Me
 
 ## Authors
 
-- **You** - *Initial work*
+- [@imsahadeb](https://github.com/imsahadeb)
 
 ## License
 
