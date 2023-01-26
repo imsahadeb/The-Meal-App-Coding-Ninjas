@@ -26,7 +26,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Authors
 
-- **You** - *Initial work*
+- [@imsahadeb](https://github.com/imsahadeb)
 
 ## License
 
