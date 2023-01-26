@@ -151,9 +151,9 @@ async function showMealList() {
             return `
 
          
-            <div class="card" onclick="showMealDetails(${element.idMeal}, '${inputValue}')">
-            <div class="card-top">
-                <div class="dish-photo">
+            <div class="card">
+            <div class="card-top"  onclick="showMealDetails(${element.idMeal}, '${inputValue}')">
+                <div class="dish-photo" >
                     <img src="${element.strMealThumb}" alt="">
                 </div>
                 <div class="dish-name">
@@ -312,9 +312,9 @@ async function showMealDetails(itemId, searchInput) {
     if( mealList.meals!=null){
         html += mealList.meals.map(element => {
             return `       
-            <div class="card" onclick="showMealDetails(${element.idMeal}, '${searchInput}')">
-                <div class="card-top">
-                    <div class="dish-photo">
+            <div class="card">
+                <div class="card-top"  onclick="showMealDetails(${element.idMeal}, '${searchInput}')">
+                    <div class="dish-photo" >
                         <img src="${element.strMealThumb}" alt="">
                     </div>
                     <div class="dish-name">
