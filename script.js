@@ -2,22 +2,24 @@
 /**
  * Get the DOM elements for toggle button, sidebar, flex-box, searchbar, dbObjectFavList, and dbLastInput
  */
+
  const toggleButton = document.getElementById("toggle-sidebar");
  const sidebar = document.getElementById("sidebar");
  const flexBox = document.getElementById('flex-box');
  const searchbar = document.getElementById('search-bar');
- const dbObjectFavList = "favouritesList";
- const dbLastInput = "lastinput";
+
+
  
 /**
  * Check and initialize the local storage items for favorite list and last input
  */
+
+
+ const dbObjectFavList = "favouritesList24ddyffffyyy6";
  if (localStorage.getItem(dbObjectFavList) == null) {
-    localStorage.setItem(dbObjectFavList, JSON.stringify());
+    localStorage.setItem(dbObjectFavList, JSON.stringify([]));
 }
-if (localStorage.getItem(dbLastInput) == null) {
-    localStorage.setItem(dbLastInput, JSON.stringify());
-}
+ 
 
 
 /**
@@ -184,7 +186,6 @@ async function showMealList() {
 function addRemoveToFavList(id) {
     const detailsPageLikeBtn = document.getElementById('like-button');
     let db = JSON.parse(localStorage.getItem(dbObjectFavList));
-    console.log("Before db:...", db);
     let ifExist = false;
     for (let i = 0; i < db.length; i++) {
         if (id == db[i]) {
@@ -208,7 +209,6 @@ function addRemoveToFavList(id) {
     showMealList();
     showFavMealList();
     updateTask();
-    console.log("After db:...", db);
 }
 
 
@@ -222,14 +222,10 @@ function addRemoveToFavList(id) {
  
 async function showMealDetails(itemId, searchInput) {
     const list = JSON.parse(localStorage.getItem(dbObjectFavList));
-
     flexBox.scrollTo({ top: 0, behavior: "smooth" });
-
-    console.log("Calling by id.......................");
     const url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
     const searchUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
     const mealList = await fetchMealsFromApi(searchUrl, searchInput);
-    console.log('mealList', mealList);
     let html = ''
     const mealDetails = await fetchMealsFromApi(url, itemId);
     if (mealDetails.meals) {
@@ -355,12 +351,9 @@ async function showFavMealList() {
     let html = "";
 
     if (favList.length == 0) {
-        console.log("Call 0......");
-
         html = `<div class="fav-item nothing"> <h1> 
         Nothing To Show.....</h1> </div>`
     } else {
-        console.log("Call...", favList.length);
         for (let i = 0; i < favList.length; i++) {
             const favMealList = await fetchMealsFromApi(url, favList[i]);
             if (favMealList.meals[0]) {
