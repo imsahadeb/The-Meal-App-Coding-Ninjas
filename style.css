@@ -232,6 +232,9 @@ body {
 
 }
 
+.fav-item:hover{
+    cursor: pointer;
+}
 
 .fav-item-photo {
     width: 100%;

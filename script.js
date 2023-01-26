@@ -70,6 +70,17 @@ function truncate(str, n) {
 }
 
 /**
+ * Generates a random character string starting 
+ * @returns {string} The generated string
+ */
+ function generateOneCharString() {
+    var possible = "abcdefghijklmnopqrstuvwxyz";
+    return possible.charAt(Math.floor(Math.random() * possible.length));
+}
+
+
+
+/**
  * Function to toggle the sidebar and display the list of favorite meals.
  * When the toggle button is clicked, the sidebar is shown or hidden and the list of favorite meals is displayed.
  * The flexBox class is also toggled to adjust the layout of the page.
@@ -140,7 +151,7 @@ async function showMealList() {
             return `
 
          
-            <div class="card">
+            <div class="card" onclick="showMealDetails(${element.idMeal}, '${inputValue}')">
             <div class="card-top">
                 <div class="dish-photo">
                     <img src="${element.strMealThumb}" alt="">
@@ -223,11 +234,13 @@ function addRemoveToFavList(id) {
  */
  
 async function showMealDetails(itemId, searchInput) {
+    console.log("searchInput:...............", searchInput);
     const list = JSON.parse(localStorage.getItem(dbObjectFavList));
     flexBox.scrollTo({ top: 0, behavior: "smooth" });
     const url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
     const searchUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
-    const mealList = await fetchMealsFromApi(searchUrl, searchInput);
+    const mealList = await fetchMealsFromApi(searchUrl,searchInput);
+    console.log('mealslist:..........',mealList);
     let html = ''
     const mealDetails = await fetchMealsFromApi(url, itemId);
     if (mealDetails.meals) {
@@ -296,37 +309,40 @@ async function showMealDetails(itemId, searchInput) {
     </div>
     <div id="cards-holder" class=" remove-top-margin ">`
     }
+    if( mealList.meals!=null){
+        html += mealList.meals.map(element => {
+            return `       
+            <div class="card" onclick="showMealDetails(${element.idMeal}, '${searchInput}')">
+                <div class="card-top">
+                    <div class="dish-photo">
+                        <img src="${element.strMealThumb}" alt="">
+                    </div>
+                    <div class="dish-name">
+                        ${element.strMeal}
+                    </div>
+                    <div class="dish-details">
+                        ${truncate(element.strInstructions, 50)}
+                        <span class="button" onclick="showMealDetails(${element.idMeal}, '${searchInput}')">Know More</span>
+                    </div>
+                </div>
+                <div class="card-bottom">
+                    <div class="like">
+                       
+                        <i class="fa-solid fa-heart ${isFav(list, element.idMeal) ? 'active' : ''} " 
+                        onclick="addRemoveToFavList(${element.idMeal})"></i>
+                    </div>
+                    <div class="play">
+                        <a href="${element.strYoutube}">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `
+        }).join('');
+    }
 
-    html += mealList.meals.map(element => {
-        return `       
-        <div class="card">
-            <div class="card-top">
-                <div class="dish-photo">
-                    <img src="${element.strMealThumb}" alt="">
-                </div>
-                <div class="dish-name">
-                    ${element.strMeal}
-                </div>
-                <div class="dish-details">
-                    ${truncate(element.strInstructions, 50)}
-                    <span class="button" onclick="showMealDetails(${element.idMeal}, '${searchInput}')">Know More</span>
-                </div>
-            </div>
-            <div class="card-bottom">
-                <div class="like">
-                   
-                    <i class="fa-solid fa-heart ${isFav(list, element.idMeal) ? 'active' : ''} " 
-                    onclick="addRemoveToFavList(${element.idMeal})"></i>
-                </div>
-                <div class="play">
-                    <a href="${element.strYoutube}">
-                        <i class="fa-brands fa-youtube"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    `
-    }).join('');
+  
     html = html + '</div>';
 
     document.getElementById('flex-box').innerHTML = html;
@@ -364,7 +380,7 @@ async function showFavMealList() {
             if (favMealList.meals[0]) {
                 let element = favMealList.meals[0];
                 html += `
-                <div class="fav-item">
+                <div class="fav-item" onclick="showMealDetails(${element.idMeal},'${generateOneCharString()}')">
 
               
                 <div class="fav-item-photo">
