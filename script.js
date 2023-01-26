@@ -1,4 +1,6 @@
-
+document.addEventListener('load', ()=>{
+    updateTask();
+})
 /**
  * Get the DOM elements for toggle button, sidebar, flex-box, searchbar, dbObjectFavList, and dbLastInput
  */
@@ -389,5 +391,8 @@ async function showFavMealList() {
     document.getElementById('fav').innerHTML = html;
 }
 
+
+
+updateTask();
 /************************************** End Of the Code ****************************************** */
 
