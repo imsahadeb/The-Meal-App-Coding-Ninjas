@@ -2,14 +2,18 @@
 <html lang="en">
 
 <head>
+   
+        
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Meal App</title>
+    <title>The Movie App</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css">
     <script src="https://kit.fontawesome.com/e6f12e5790.js" crossorigin="anonymous"></script>
 </head>
 
@@ -47,31 +51,11 @@
             <div class="top_gap"></div>
             <hr />
             <div class="title small">
-                Favourite Items
+                Favourite Movies
             </div>
             <hr />
             <div id="fav">
-                <!-- <div class="fav-item">
-
-              
-                    <div class="fav-item-photo">
-                        <img src="https://www.themealdb.com/images/ingredients/Lime.png" alt="">
-                    </div>
-                    <div class="fav-item-details">
-                        <div class="fav-item-name">
-                            <strong>Name: </strong>
-                            <span class="fav-item-text">
-                                Chicken
-                            </span>
-                        </div>
-                        <div id="fav-like-button">
-                            Add or Remove
-                        </div>
-
-                    </div>
-
-                </div> -->
-
+                
             </div>
 
         </div>
@@ -83,7 +67,7 @@
 
                 <div class="header">
                     <div class="title">
-                        Let's Eat Something New
+                        Let's Watch Something New
                     </div>
                 </div>
                 <div class="" id="search-bar">
@@ -91,81 +75,16 @@
                         <i class="fa-solid fa-search "></i>
                     </div>
                     <div class="new-search-input">
-                        <form onkeyup="showMealList()">
-                            <input id="search-input" type="text" placeholder="Search food, receipe" />
+                        <form onkeyup="showMovieList()">
+                            <input id="search-input" type="text" placeholder="Search any movies, series..." />
                         </form>
                     </div>
 
                 </div>
             </div>
-            <!-- <div class="item-details">
-                <div class="item-details-left">
-                    <img src="assets/Coding-Ninjas.jpg" alt="">
-                </div>
-                <div class="item-details-right">
-                    <div class="item-name">
-                        <strong>Name: </strong>
-                        <span class="item-text">
-                            Roti
-                        </span>
-                     </div>
-                    <div class="item-category">
-                        <strong>Category: </strong>
-                        <span class="item-text">
-                            Roti
-                        </span>
-                    </div>
-                    <div class="item-ingrident">
-                        <strong>Ingrident: </strong>
-                        <span class="item-text">
-                            Roti
-                        </span>
-                    </div>
-                    <div class="item-instruction">
-                        <strong>Instructions: </strong>
-                        <span class="item-text">
-                            Roti
-                        </span>
-                    </div>
-                    <div class="item-video">
-                        <strong>Video Link</strong>
-                        <span class="item-text">
-                            Roti
-                        </span>
-                    </div>
-                </div>
-            </div>  -->
+           
 
             <div id="cards-holder" class="">
-
-
-                <!-- <div class="card">
-                    <div class="card-top">
-                        <div class="dish-photo">
-                            <img src="${element.strMealThumb}" alt="">
-                        </div>
-                        <div class="dish-name">
-                            ${element.strMeal}
-                        </div>
-                        <div class="dish-details">
-                            ${truncate(element.strInstructions,50)}
-                            <a href="${element.strInstructions}">
-                                <span class="button">Know More</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card-bottom">
-                        <div class="like">
-                            <i class="fa-solid fa-heart"></i>
-                        </div>
-                        <div class="play">
-                            <a href="${element.strYoutube}">
-                                <i class="fa-brands fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div> -->
-
 
             </div>
 
