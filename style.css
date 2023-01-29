@@ -229,7 +229,7 @@ body {
     background-color: hsl(234, 39%, 85%);
     color: hsl(235, 24%, 19%);
     font-size: 1.2rem;
-    border-radius: 10%;
+    border-radius: 10px;
 
 }
 
@@ -434,7 +434,7 @@ body {
 .card {
 
     margin: 5px;
-    height: 320px;
+    height: 350px;
     min-width: 220px;
     max-width: 220px;
     display: flex;
@@ -460,8 +460,8 @@ body {
     border-radius: 20%;
 }
 
-.movie-poster {
-    width: 220px;
+.dish-photo {
+    width: 100%;
     overflow: hidden;
     position: relative;
     border-top-left-radius: 20px;
@@ -470,10 +470,12 @@ body {
 
 }
 
-.movie-poster img {
+.dish-photo img {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     height: 180px;
+
+
     width: 100%;
     object-fit: cover;
 
@@ -482,7 +484,7 @@ body {
 
 }
 
-.movie-name {
+.dish-name {
     margin-top: 5px;
     width: 100%;
     margin-left: 10px;
@@ -492,7 +494,7 @@ body {
 
 }
 
-.movie-year {
+.dish-details {
     color: hsl(234, 54%, 30%);
     margin-top: 5px;
     margin-left: 10px;
@@ -550,28 +552,42 @@ body {
 } */
 
 .like {
-    flex: 1;
+    flex: .5;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-left: 10px;
-    color: hsl(234, 54%, 30%);
 
 }
 
+.play {
+    display: flex;
+    justify-content: flex-end;
+}
 
-.like .fa-star {
-margin-left: 10px;
-    scale: .9;
+.fa-heart {
+
+    scale: 1.6;
     color: gray;
 
 
 }
 
-.fa-star.active {
-    color: rgb(236, 233, 13);
+.fa-heart.active {
+    color: rgb(158, 45, 45);
 }
 
+.fa-youtube {
+
+    color: rgb(151, 29, 29);
+    scale: 1.6;
+
+}
+
+.fa-heart:hover,
+.fa-youtube:hover {
+    scale: 1.9;
+    transition: ease-in-out all .25s;
+}
 
 .item-details {
     min-height: 300px;
@@ -584,6 +600,7 @@ margin-left: 10px;
     background-color: hsl(235, 24%, 19%);
     color: white;
     border: 1x solid red;
+
 
 }
 
@@ -644,28 +661,25 @@ margin-left: 10px;
 
 }
 
-.movie-plot {
+.item-instruction {
     overflow: hidden;
     max-height: 90px;
 
 }
 
-.movie-plot>span.item-text {
+.item-instruction>span.item-text {
 
     text-overflow: ellipsis;
 
 
 }
 
-.movie-rating {
+.item-video {
     display: flex;
 
     min-height: 40px;
     align-items: center;
 
-}
-.movie-rating .item-text{
-    margin-left: 10px;
 }
 
 #like-button {
